@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import { Box, Grid, Typography, Paper } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import ProductsList from '@components/productsList/ProductsList';
@@ -129,7 +129,7 @@ const CategoryPage = () => {
   const [productsList, setProductsList] = useState<ProductType[]>(initialProductsList);
   const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
   const [minPrice, setMinPrice] = React.useState<number>(0);
-  const [maxPrice, setMaxPrice] = React.useState<number>(0);
+  const [maxPrice, setMaxPrice] = React.useState<number>(3000);
 
   const sortLowToHighHandler = () => {
     const sortedFromLowToHighPrice = [...initialProductsList];
@@ -151,9 +151,9 @@ const CategoryPage = () => {
   }, []);
 
   const filteredList = useMemo(() => {
-    let filteredProducts = initialProductsList;
+    let filteredProducts = [...initialProductsList];
 
-    if (selectedBrands.length > 0) {
+    if (selectedBrands.length) {
       filteredProducts = filteredProducts.filter(product => selectedBrands.includes(product.brand));
     }
 
@@ -161,18 +161,17 @@ const CategoryPage = () => {
       product => product.price >= minPrice && product.price <= maxPrice,
     );
 
-    return filteredProducts.length ? filteredProducts : initialProductsList;
+    return filteredProducts;
   }, [initialProductsList, selectedBrands, minPrice, maxPrice]);
 
   const handleApplyFilter = useCallback(() => {
-    console.log('render');
-
-    setProductsList(filteredList);
-  }, [filteredList]);
+    const updatedList = filteredList.length ? filteredList : initialProductsList;
+    setProductsList(updatedList);
+  }, [filteredList, initialProductsList]);
 
   const handleResetFilters = useCallback(() => {
     setSelectedBrands([]);
-    setMinPrice(1);
+    setMinPrice(0);
     setMaxPrice(3000);
     setProductsList(initialProductsList);
   }, [initialProductsList]);
