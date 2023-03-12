@@ -132,12 +132,12 @@ const CategoryPage = () => {
   const [maxPrice, setMaxPrice] = React.useState<number>(3000);
 
   const sortLowToHighHandler = () => {
-    const sortedFromLowToHighPrice = [...initialProductsList];
+    const sortedFromLowToHighPrice = [...productsList];
     sortedFromLowToHighPrice.sort((a, b) => a.price - b.price);
     setProductsList(sortedFromLowToHighPrice);
   };
   const sortHighToLowHandler = () => {
-    const sortedFromHighToLowPrice = [...initialProductsList];
+    const sortedFromHighToLowPrice = [...productsList];
     sortedFromHighToLowPrice.sort((a, b) => b.price - a.price);
     setProductsList(sortedFromHighToLowPrice);
   };
