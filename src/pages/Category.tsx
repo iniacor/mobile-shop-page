@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback, useEffect } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import { Box, Grid, Typography, Paper } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import ProductsList from '@components/productsList/ProductsList';
@@ -10,21 +10,7 @@ import ApplyButton from '@components/buttons/ApplyButton';
 import ResetButton from '@components/buttons/ResetButton';
 import SortField from '@components/sortField/SortField';
 
-type ProductType = {
-  id: string;
-  title: string;
-  image: string;
-  price: number;
-  brand: string;
-  description: string;
-  full_description: string;
-  attributes: {
-    category: string;
-    type?: undefined;
-    material?: undefined;
-    design?: undefined;
-  };
-};
+import type ProductType from '../entities/products';
 
 export const cardData = [
   {

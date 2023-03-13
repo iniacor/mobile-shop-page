@@ -2,26 +2,18 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 
-// function valuetext(value: number) {
-//   console.log(value);
-
-//   return `$${value}`;
-// }
-// function valuetext(minPrice: number, maxPrice: number) {
-//   return `$${minPrice} - $${maxPrice}`;
-// }
+function valuetext(value: number) {
+  return `$${value}`;
+}
 
 export default function RangeSlider({ setMinPrice, setMaxPrice, minPrice, maxPrice }) {
   const [value, setValue] = React.useState<number[]>([minPrice, maxPrice]);
-  console.log('value', value);
-  console.log('minPrise', minPrice);
-  console.log('maxPrise', maxPrice);
 
   const handleChange = (event: Event, newValue: number | number[]) => {
     const newValues = newValue as number[];
     setMinPrice(newValues[0]);
     setMaxPrice(newValues[1]);
-    // setValue(newValues);
+    setValue([newValues[0], newValues[1]]);
   };
 
   React.useEffect(() => {
@@ -35,7 +27,9 @@ export default function RangeSlider({ setMinPrice, setMaxPrice, minPrice, maxPri
         value={value}
         onChange={handleChange}
         valueLabelDisplay="auto"
-        // getAriaValueText={(minPrice, maxPrice) => valuetext(minPrice, maxPrice)}
+        getAriaValueText={valuetext}
+        min={0}
+        max={3000}
       />
     </Box>
   );
