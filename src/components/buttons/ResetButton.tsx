@@ -10,7 +10,6 @@ export default function ResetButton({ onReset }: ApplyButtonProps) {
   return (
     <Styled.ResetButton onClick={onReset}>
       <Typography
-        // variant="button"
         sx={{ color: theme.palette.primary.main, textTransform: 'none', fontSize: '1rem' }}
       >
         Reset filter

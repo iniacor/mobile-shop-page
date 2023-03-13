@@ -1,19 +1,10 @@
 import React, { useState } from 'react';
 import { List } from '@mui/material';
 import ProductCardItem from '../ProductCardItem/ProductCardItem';
-
-type ProductType = {
-  id: string;
-  title: string;
-  image: string;
-  price: number;
-  brand: string;
-  description: string;
-  link: string;
-};
+import type Product from '../../entities/products';
 
 type ProductListProps = {
-  productsList: ProductType[];
+  productsList: Product[];
 };
 
 const ProductsList = ({ productsList }: ProductListProps) => {

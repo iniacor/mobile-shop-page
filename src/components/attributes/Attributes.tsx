@@ -2,23 +2,33 @@ import * as React from 'react';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
-import CommentIcon from '@mui/icons-material/Comment';
-import IconButton from '@mui/material/IconButton';
 
-interface attribute {
-  key: string;
-}
+type attribute = {
+  category?: string;
+  type?: string;
+  material?: string;
+  design?: string;
+};
+
+type attributeKey = keyof attribute;
+
+type ProductAttribute = {
+  key: attributeKey;
+  value?: string;
+  id: number;
+};
 
 type productAttributes = {
-  attributes: attribute[];
+  attributes: { [key in attributeKey]?: string }[];
 };
 
 export default function Attributes({ attributes }: productAttributes) {
   const productAttributes = attributes.reduce((acc, curr, index) => {
-    const [key, value] = Object.entries(curr)[0];
-    acc.push({ key, value, id: index });
+    const key = Object.keys(curr)[0] as attributeKey;
+    acc.push({ key, value: curr[key], id: index });
     return acc;
-  }, []);
+  }, [] as ProductAttribute[]);
+
   return (
     <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
       {productAttributes.map(value => (

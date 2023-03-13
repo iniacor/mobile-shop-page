@@ -1,30 +1,20 @@
 import React from 'react';
 import { Card, CardMedia, CardContent, Typography, Box } from '@mui/material';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { cardData } from './Category';
 import { BuyButton } from '@components/buttons/Buttons.styled';
-import { Attribution } from '@mui/icons-material';
 import Attributes from '@components/attributes/Attributes';
-
-type ProductType = {
-  id: string;
-  title: string;
-  image: string;
-  price: number;
-  brand: string;
-  description: string;
-  link: string;
-};
+import type Product from '../entities/products';
 
 const ProductCardPage = () => {
   const { id } = useParams();
-  const path = useLocation();
-  const { pathname } = path;
-  console.log(pathname);
+  const currentData: Product | undefined = cardData.find(item => item.id === id);
 
-  const currentData = cardData.find(item => item.id === id);
-  const { title, image, price, brand, description, full_description, attributes } = currentData;
+  if (!currentData) {
+    return null;
+  }
+  const { title, image, price, full_description, attributes } = currentData;
 
   return (
     <>

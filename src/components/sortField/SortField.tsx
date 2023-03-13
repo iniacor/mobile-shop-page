@@ -4,7 +4,14 @@ import * as Styled from './SortField.styled';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 
-const SortField = ({ onHighSort, onLowSort }) => {
+type Handler = () => void;
+
+type SortFieldProps = {
+  onHighSort: Handler;
+  onLowSort: Handler;
+};
+
+const SortField = ({ onHighSort, onLowSort }: SortFieldProps) => {
   return (
     <Styled.SortField>
       <Button

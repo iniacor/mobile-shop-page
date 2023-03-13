@@ -10,7 +10,9 @@ import ApplyButton from '@components/buttons/ApplyButton';
 import ResetButton from '@components/buttons/ResetButton';
 import SortField from '@components/sortField/SortField';
 
-import type ProductType from '../entities/products';
+import type Product from '../entities/products';
+
+type Handler = () => void;
 
 export const cardData = [
   {
@@ -111,19 +113,19 @@ export const cardData = [
 ];
 
 const CategoryPage = () => {
-  const [initialProductsList] = useState<ProductType[]>(cardData);
-  const [productsList, setProductsList] = useState<ProductType[]>(initialProductsList);
+  const [initialProductsList] = useState<Product[]>(cardData);
+  const [productsList, setProductsList] = useState<Product[]>(initialProductsList);
   const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
   const [minPrice, setMinPrice] = React.useState<number>(0);
   const [maxPrice, setMaxPrice] = React.useState<number>(3000);
 
-  const sortLowToHighHandler = () => {
-    const sortedFromLowToHighPrice = [...productsList];
+  const sortLowToHighHandler: Handler = () => {
+    const sortedFromLowToHighPrice: Product[] = [...productsList];
     sortedFromLowToHighPrice.sort((a, b) => a.price - b.price);
     setProductsList(sortedFromLowToHighPrice);
   };
-  const sortHighToLowHandler = () => {
-    const sortedFromHighToLowPrice = [...productsList];
+  const sortHighToLowHandler: Handler = () => {
+    const sortedFromHighToLowPrice: Product[] = [...productsList];
     sortedFromHighToLowPrice.sort((a, b) => b.price - a.price);
     setProductsList(sortedFromHighToLowPrice);
   };
@@ -137,7 +139,7 @@ const CategoryPage = () => {
   }, []);
 
   const filteredList = useMemo(() => {
-    let filteredProducts = [...initialProductsList];
+    let filteredProducts: Product[] = [...initialProductsList];
 
     if (selectedBrands.length) {
       filteredProducts = filteredProducts.filter(product => selectedBrands.includes(product.brand));
@@ -151,7 +153,7 @@ const CategoryPage = () => {
   }, [initialProductsList, selectedBrands, minPrice, maxPrice]);
 
   const handleApplyFilter = useCallback(() => {
-    const updatedList = filteredList.length ? filteredList : initialProductsList;
+    const updatedList: Product[] = filteredList.length ? filteredList : initialProductsList;
     setProductsList(updatedList);
   }, [filteredList, initialProductsList]);
 

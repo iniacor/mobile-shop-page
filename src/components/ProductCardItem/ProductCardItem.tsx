@@ -1,18 +1,9 @@
 import React from 'react';
 import { Card, CardMedia, CardContent, Typography, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
+import type Product from '../../entities/products';
 
-type ProductType = {
-  id: string;
-  title: string;
-  image: string;
-  price: number;
-  brand: string;
-  description: string;
-  link: string;
-};
-
-const ProductCardItem = (card: ProductType) => {
+const ProductCardItem = (card: Product) => {
   const { id, title, image, price, brand, description } = card;
   return (
     <Card

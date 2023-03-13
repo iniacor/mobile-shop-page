@@ -1,4 +1,4 @@
-type ProductType = {
+type Product = {
   id: string;
   title: string;
   image: string;
@@ -7,10 +7,11 @@ type ProductType = {
   description: string;
   full_description: string;
   attributes: {
-    category: string;
-    type?: undefined;
-    material?: undefined;
-    design?: undefined;
-  };
+    category?: string;
+    type?: string;
+    material?: string;
+    design?: string;
+  }[];
 };
-export default ProductType;
+
+export default Product;
