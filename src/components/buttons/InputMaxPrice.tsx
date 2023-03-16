@@ -12,7 +12,7 @@ export default function InputMaxPrice({ value, onChange }: OuyputGetAmountProps)
     <Box
       component="form"
       sx={{
-        '& .MuiTextField-root': { m: 1, width: '10ch' },
+        '& .MuiTextField-root': { m: 1, ml: 0, width: '11ch' },
         '& .MuiFormLabel-root': {
           fontSize: '1rem',
           lineHeight: '1em',
@@ -26,6 +26,7 @@ export default function InputMaxPrice({ value, onChange }: OuyputGetAmountProps)
         <TextField
           sx={{
             '& .MuiInput-input': {
+              padding: '7px',
               fontSize: '1rem',
               border: '1px solid #DEE2E7',
               borderRadius: '6px',

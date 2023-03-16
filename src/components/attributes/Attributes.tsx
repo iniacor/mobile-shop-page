@@ -1,7 +1,5 @@
 import * as React from 'react';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
+import * as Styled from './Attribute.styled';
 
 type attribute = {
   category?: string;
@@ -30,16 +28,16 @@ export default function Attributes({ attributes }: productAttributes) {
   }, [] as ProductAttribute[]);
 
   return (
-    <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+    <Styled.AttributesList>
       {productAttributes.map(value => (
-        <ListItem
+        <Styled.AttributesListItem
           key={value.id}
           disableGutters
-          secondaryAction={<ListItemText primary={`${value.value}`} />}
+          secondaryAction={<Styled.AttributesText primary={`${value.value}`} />}
         >
-          <ListItemText primary={`${value.key}`} sx={{ color: '#8B96A5', fontFamily: 'Inter' }} />
-        </ListItem>
+          <Styled.AttributesText primary={`${value.key}`} />
+        </Styled.AttributesListItem>
       ))}
-    </List>
+    </Styled.AttributesList>
   );
 }

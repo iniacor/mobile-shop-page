@@ -2,6 +2,7 @@ import * as React from 'react';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import theme from '@theme/index';
 
 export default function BrandCheckboxGroupe({ selectedBrands, handleBrandChange }) {
   return (
@@ -14,6 +15,13 @@ export default function BrandCheckboxGroupe({ selectedBrands, handleBrandChange 
           />
         }
         label="Samsung"
+        sx={{
+          [theme.breakpoints.down('sm')]: {
+            flexDirection: 'row-reverse',
+            justifyContent: 'space-between',
+            margin: 0,
+          },
+        }}
       />
       <FormControlLabel
         control={
@@ -23,6 +31,13 @@ export default function BrandCheckboxGroupe({ selectedBrands, handleBrandChange 
           />
         }
         label="Apple"
+        sx={{
+          [theme.breakpoints.down('sm')]: {
+            flexDirection: 'row-reverse',
+            justifyContent: 'space-between',
+            margin: 0,
+          },
+        }}
       />
       <FormControlLabel
         control={
@@ -32,6 +47,13 @@ export default function BrandCheckboxGroupe({ selectedBrands, handleBrandChange 
           />
         }
         label="Huawei"
+        sx={{
+          [theme.breakpoints.down('sm')]: {
+            flexDirection: 'row-reverse',
+            justifyContent: 'space-between',
+            margin: 0,
+          },
+        }}
       />
       <FormControlLabel
         control={
@@ -41,6 +63,13 @@ export default function BrandCheckboxGroupe({ selectedBrands, handleBrandChange 
           />
         }
         label="Pocco"
+        sx={{
+          [theme.breakpoints.down('sm')]: {
+            flexDirection: 'row-reverse',
+            justifyContent: 'space-between',
+            margin: 0,
+          },
+        }}
       />
       <FormControlLabel
         control={
@@ -50,6 +79,13 @@ export default function BrandCheckboxGroupe({ selectedBrands, handleBrandChange 
           />
         }
         label="Lenovo"
+        sx={{
+          [theme.breakpoints.down('sm')]: {
+            flexDirection: 'row-reverse',
+            justifyContent: 'space-between',
+            margin: 0,
+          },
+        }}
       />
     </FormGroup>
   );

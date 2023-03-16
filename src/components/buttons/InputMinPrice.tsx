@@ -14,7 +14,8 @@ export default function InputMinPrice({ value, onChange }: InputChangeAmountProp
       sx={{
         '& .MuiTextField-root': {
           m: 1,
-          width: '10ch',
+          ml: 0,
+          width: '11ch',
         },
         '.MuiFormLabel-root': {
           fontSize: '1rem',
@@ -28,6 +29,7 @@ export default function InputMinPrice({ value, onChange }: InputChangeAmountProp
         <TextField
           sx={{
             '& .MuiInput-input': {
+              padding: '7px',
               fontSize: '1rem',
               border: '1px solid #DEE2E7',
               borderRadius: '6px',

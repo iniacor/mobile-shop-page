@@ -3,6 +3,7 @@ const components = {
     styleOverrides: {
       root: {
         padding: 8,
+        borderRadius: '6px',
       },
     },
     defaultProps: { elevation: 0 },

@@ -41,7 +41,7 @@ export default function RangeSlider({
         valueLabelDisplay="auto"
         getAriaValueText={valuetext}
         min={0}
-        max={3000}
+        max={4000}
       />
     </Box>
   );

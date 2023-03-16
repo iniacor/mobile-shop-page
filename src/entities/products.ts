@@ -5,7 +5,6 @@ type Product = {
   price: number;
   brand: string;
   description: string;
-  full_description: string;
   attributes: {
     category?: string;
     type?: string;

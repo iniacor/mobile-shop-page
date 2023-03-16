@@ -6,20 +6,21 @@ const GlobalStyle = createGlobalStyle<ThemeProps<Theme>>`
   body,
    {
     overflow: hidden;
-    height: 100%;
+    min-height: 100vh;
     font-size: 16px;
     line-height: 24px;
     font-weight: 400;
-    font-family: Inter, sans-serif,
+    font-family: ${props => props.theme.typography.fontFamily};
   }
   #root {
     display: flex;
     flex-direction: column; 
     min-height:100vh;
+    margin: auto;
   }
 
   body {
-    background: ${props => props.theme.palette.background.grey};
+    background: ${props => props.theme.palette.grey[100]};
 
   }
 

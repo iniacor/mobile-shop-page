@@ -7,4 +7,8 @@ export const MainSection = styled(props => <Box component="main" flexGrow={1} {.
   flex-direction: column;
   align-items: center;
   margin-top: 100px;
+  padding-bottom: 100px;
+  ${props => props.theme.breakpoints.down('sm')} {
+    margin-top: 0;
+  }
 `;

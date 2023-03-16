@@ -3,6 +3,7 @@ import { Link as RouterLink, useLocation } from 'react-router-dom';
 import * as Styled from './BreadCrumbs.styled';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
 const breadcrumbNameMap = {
   '/': 'Home',
@@ -10,7 +11,7 @@ const breadcrumbNameMap = {
   '/electronics/:id': 'Product',
 };
 
-function BreadcrumbItem({ to, ...rest }) {
+const BreadcrumbItem = ({ to, ...rest }) => {
   const location = useLocation();
   const pathnames = location.pathname.split('/').filter(x => x);
 
@@ -44,14 +45,14 @@ function BreadcrumbItem({ to, ...rest }) {
   }
 
   return breadcrumbs;
-}
+};
 
 function Breadcrumbs() {
   const location = useLocation();
   const pathnames = location.pathname.split('/').filter(x => x);
 
   return (
-    <Styled.Breadcrumbs aria-label="breadcrumb">
+    <Styled.Breadcrumbs aria-label="breadcrumb" separator={<NavigateNextIcon fontSize="small" />}>
       <Link color="inherit" component={RouterLink} to="/">
         Home
       </Link>

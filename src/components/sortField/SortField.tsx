@@ -1,59 +1,59 @@
 import React from 'react';
-import { Button, Typography } from '@mui/material';
 import * as Styled from './SortField.styled';
+import { LowSortButton, HighSortButton, SortButtonText } from '../buttons/Buttons.styled';
+import FilterMobileButton from '@components/buttons/FilterMobileButton';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
+import CloseButton from '@components/buttons/CloseFilterButton';
+import theme from '@theme/index';
 
 type Handler = () => void;
 
 type SortFieldProps = {
   onHighSort: Handler;
   onLowSort: Handler;
+  openMobFilter: boolean;
+  setopenMobFilter: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const SortField = ({ onHighSort, onLowSort }: SortFieldProps) => {
+const SortField = ({ onHighSort, onLowSort, openMobFilter, setopenMobFilter }: SortFieldProps) => {
+  const handlerClickMobFilter = () => {
+    setopenMobFilter(!openMobFilter);
+  };
   return (
     <Styled.SortField>
-      <Button
-        variant="outlined"
-        sx={{ p: '5px 10px', mr: 1, borderRadius: '6px', border: ' 1px solid #DEE2E7' }}
-        onClick={onHighSort}
-      >
-        <Typography
+      <LowSortButton onClick={onHighSort}>
+        <SortButtonText>Price: Low to High</SortButtonText>
+        <FileUploadIcon
           sx={{
-            textTransform: 'none',
-            fontSize: '1rem',
-            mr: '18px',
-            fontFamily: 'Inter',
-            fontWeight: '400',
-            lineHeight: 1,
-            color: '#1C1C1C',
+            fill: '#8B96A5',
+            [theme.breakpoints.down('sm')]: {
+              width: '0.7em',
+              height: '0.7em',
+            },
           }}
-        >
-          Price: Low to High
-        </Typography>
-        <FileUploadIcon sx={{ fill: '#8B96A5' }} />
-      </Button>
-      <Button
-        variant="outlined"
-        sx={{ p: '5px 10px', borderRadius: '6px', border: ' 1px solid #DEE2E7' }}
-        onClick={onLowSort}
-      >
-        <Typography
+        />
+      </LowSortButton>
+      <HighSortButton onClick={onLowSort}>
+        <SortButtonText>Price: High to Low</SortButtonText>
+        <FileDownloadIcon
           sx={{
-            textTransform: 'none',
-            fontSize: '1rem',
-            mr: '18px',
-            fontFamily: 'Inter',
-            fontWeight: '400',
-            lineHeight: 1,
-            color: '#1C1C1C',
+            fill: '#8B96A5',
+            [theme.breakpoints.down('sm')]: {
+              width: '0.7em',
+              height: '0.7em',
+            },
           }}
-        >
-          Price: High to Low
-        </Typography>
-        <FileDownloadIcon sx={{ fill: '#8B96A5' }} />
-      </Button>
+        />
+      </HighSortButton>
+      {openMobFilter ? (
+        <CloseButton handlerClickMobFilter={handlerClickMobFilter} />
+      ) : (
+        <FilterMobileButton
+          handlerClickMobFilter={handlerClickMobFilter}
+          openMobFilter={openMobFilter}
+        />
+      )}
     </Styled.SortField>
   );
 };

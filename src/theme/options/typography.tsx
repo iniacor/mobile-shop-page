@@ -1,6 +1,4 @@
 const typography = {
-  typography: {
-    fontFamily: 'Inter, sans-serif',
-  },
+  fontFamily: ['Inter', 'sans-serif'].join(','),
 };
 export default typography;
