@@ -1,6 +1,6 @@
 #  Category page of eShop
 
-### React-powered application for visualisation goods on category page of electronics shop.
+### React-powered SPA for visualisation goods on category page of electronics shop.
 All goods and their characteristics) are already on the client (no requests to the server are required)
 
 
@@ -16,6 +16,12 @@ All goods and their characteristics) are already on the client (no requests to t
 - [Babel](https://babeljs.io/)
 - [ESLint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
+
+## ✨ Features
+
+- filter goods: by brand, by price
+- sorting products by price.
+- navigation by breadcrumbs
 
 
 ## Installation
