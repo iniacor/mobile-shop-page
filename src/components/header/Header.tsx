@@ -2,7 +2,6 @@ import React from 'react';
 import { Container, Box } from '@mui/material';
 import Logo from '@components/Logo';
 import * as Styled from './Header.styled';
-import theme from '@theme/index';
 
 const Header = () => {
   return (

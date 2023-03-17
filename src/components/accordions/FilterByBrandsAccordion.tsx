@@ -21,13 +21,16 @@ export default function FilterByBrandsAccordion({
 }: FilterByBrandAccordionProps) {
   const [expanded, setExpanded] = useState<string | false>('panel1');
 
-  const handleBrandChange = useCallback((brandName: string) => {
-    setSelectedBrands(selectedBrands =>
-      selectedBrands.includes(brandName)
-        ? selectedBrands.filter(brand => brand !== brandName)
-        : [...selectedBrands, brandName],
-    );
-  }, []);
+  const handleBrandChange = useCallback(
+    (brandName: string) => {
+      setSelectedBrands(selectedBrands =>
+        selectedBrands.includes(brandName)
+          ? selectedBrands.filter(brand => brand !== brandName)
+          : [...selectedBrands, brandName],
+      );
+    },
+    [setSelectedBrands],
+  );
 
   const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
     setExpanded(isExpanded ? panel : false);

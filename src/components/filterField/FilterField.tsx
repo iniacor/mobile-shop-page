@@ -34,7 +34,7 @@ const FilterField = ({ initialProductsList, setProductsList, openMobFilter }: Fi
   const handleApplyFilter = useCallback(() => {
     const updatedList: Product[] = filteredList.length ? filteredList : initialProductsList;
     setProductsList(updatedList);
-  }, [filteredList, initialProductsList]);
+  }, [filteredList, initialProductsList, setProductsList]);
 
   return (
     <Paper

@@ -41,7 +41,7 @@ export default function FilterByPriceAccordion({
     setMinPrice(0);
     setMaxPrice(4000);
     setProductsList(initialProductsList);
-  }, [initialProductsList]);
+  }, [initialProductsList, setSelectedBrands, setMinPrice, setMaxPrice, setProductsList]);
 
   const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
     setExpanded(isExpanded ? panel : false);
