@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductCardItem from '../productCardItem/ProductCardItem';
+import ProductCardItem from '@components/productCardItem/ProductCardItem';
 import type Product from '../../entities/products';
 import * as Styled from './ProductsList.styled';
 
