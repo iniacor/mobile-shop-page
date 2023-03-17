@@ -4,8 +4,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
-const TerserPlugin = require('terser-webpack-plugin');
-const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
@@ -14,41 +12,8 @@ module.exports = (env, argv) => {
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: isProduction ? '[name].[contenthash].js' : '[name].js',
-      chunkFilename: isProduction ? '[name].[contenthash].chunk.js' : '[name].chunk.js',
       assetModuleFilename: path.join('images', '[name].[contenthash][ext]'),
       publicPath: '/',
-    },
-    optimization: {
-      minimize: isProduction,
-      minimizer: [
-        new TerserPlugin({
-          parallel: true,
-        }),
-        new ImageMinimizerPlugin({
-          minimizer: {
-            implementation: ImageMinimizerPlugin.imageminMinify,
-            options: {
-              plugins: [
-                ['gifsicle', { interlaced: true }],
-                ['jpegtran', { progressive: true }],
-                ['optipng', { optimizationLevel: 5 }],
-                ['svgo', { name: 'preset-default' }],
-              ],
-            },
-          },
-        }),
-      ],
-      splitChunks: {
-        chunks: 'all',
-        cacheGroups: {
-          vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendor',
-            enforce: true,
-            chunks: 'all',
-          },
-        },
-      },
     },
     module: {
       rules: [

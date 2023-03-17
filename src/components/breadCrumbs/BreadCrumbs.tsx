@@ -6,9 +6,8 @@ import Link from '@mui/material/Link';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
 const breadcrumbNameMap = {
-  '/': 'Home',
-  '/electronics': 'Electronics',
-  '/electronics/:id': 'Product',
+  '/': 'Electronics',
+  '/:id': 'Product',
 };
 
 const BreadcrumbItem = ({ to, ...rest }) => {
@@ -54,7 +53,7 @@ function Breadcrumbs() {
   return (
     <Styled.Breadcrumbs aria-label="breadcrumb" separator={<NavigateNextIcon fontSize="small" />}>
       <Link color="inherit" component={RouterLink} to="/">
-        Home
+        Electronics
       </Link>
       {pathnames.map((value, index) => {
         const url = `/${pathnames.slice(0, index + 1).join('/')}`;

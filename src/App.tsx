@@ -27,9 +27,9 @@ const MyApp: React.FunctionComponent<MyAppProps> = props => {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout />}>
-              <Route index element={<HomePage />} />
-              <Route path="electronics" element={<CategoryPage />} />
-              <Route path="electronics/:id" element={<ProductCardPage />} />
+              <Route index element={<CategoryPage />} />
+              <Route path="/" element={<CategoryPage />} />
+              <Route path=":id" element={<ProductCardPage />} />
             </Route>
           </Routes>
         </BrowserRouter>
