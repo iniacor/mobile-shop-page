@@ -10,7 +10,7 @@ module.exports = (env, argv) => {
   const config = {
     entry: './src/index.tsx',
     output: {
-      path: path.resolve(__dirname, 'dist'),
+      path: path.resolve(__dirname, 'build'),
       filename: isProduction ? '[name].[contenthash].js' : '[name].js',
       assetModuleFilename: path.join('images', '[name].[contenthash][ext]'),
       publicPath: '/',
