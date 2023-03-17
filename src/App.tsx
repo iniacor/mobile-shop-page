@@ -2,7 +2,6 @@ import * as React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { EmotionCache } from '@emotion/react';
 import Layout from '@components/layout/Layout';
-import HomePage from './pages/Home';
 import CategoryPage from './pages/Category';
 import ProductCardPage from './pages/Product';
 
