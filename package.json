@@ -1,7 +1,7 @@
 {
   "name": "converter",
   "version": "1.0.0",
-  "main": "webpack.config.js",
+  "main": "index.js",
   "scripts": {
     "test": "react-scripts test",
     "start": "webpack serve --mode=development --devtool source-map",
