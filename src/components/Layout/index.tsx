@@ -1,5 +1,5 @@
-import Breadcrumbs from '@components/breadCrumbs/BreadCrumbs';
-import Header from '@components/header/Header';
+import Breadcrumbs from '@components/breadCrumbs';
+import Header from '@components/header';
 import { Container } from '@mui/material';
 import React from 'react';
 import { Outlet } from 'react-router-dom';

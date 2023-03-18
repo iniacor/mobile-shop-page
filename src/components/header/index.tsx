@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Box } from '@mui/material';
-import Logo from '@components/Logo';
+import Logo from '../../assets/icons/Logo';
 import * as Styled from './Header.styled';
 
 const Header = () => {

@@ -1,10 +1,9 @@
 import React, { useState, useMemo, useCallback } from 'react';
-import { Box, Paper } from '@mui/material';
-import Divider from '@mui/material/Divider';
-import theme from '@theme/index';
-import type Product from '../../entities/products';
+import { Box } from '@mui/material';
 import FilterByBrandsAccordion from '@components/accordions/FilterByBrandsAccordion';
 import FilterByPriceAccordion from '@components/accordions/FilterByPriceAccordion';
+import type Product from '../../entities/products';
+import * as Styled from './FilterField.styled';
 
 type FilterFieldProps = {
   initialProductsList: Product[];
@@ -37,37 +36,16 @@ const FilterField = ({ initialProductsList, setProductsList, openMobFilter }: Fi
   }, [filteredList, initialProductsList, setProductsList]);
 
   return (
-    <Paper
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'stretch',
-        backgroundColor: 'inherit',
-        [theme.breakpoints.down('sm')]: {
-          flexDirection: 'column-reverse',
-          display: openMobFilter ? 'flex' : 'none',
-        },
-      }}
-    >
+    <Styled.FilterField openMobFilter={openMobFilter}>
       <Box sx={{ mb: 2, width: '100%' }}>
-        <Divider
-          variant="middle"
-          sx={{
-            mb: 2,
-            ml: 0,
-            mr: 0,
-            [theme.breakpoints.down('sm')]: {
-              display: 'none',
-            },
-          }}
-        />
+        <Styled.Divider variant="middle" />
         <FilterByBrandsAccordion
           setSelectedBrands={setSelectedBrands}
           selectedBrands={selectedBrands}
           handleApplyFilter={handleApplyFilter}
         />
       </Box>
-      <Divider variant="middle" sx={{ mb: 2, ml: 0, mr: 0, width: '100%' }} />
+      <Styled.Divider variant="middle" />
       <FilterByPriceAccordion
         initialProductsList={initialProductsList}
         setSelectedBrands={setSelectedBrands}
@@ -78,7 +56,7 @@ const FilterField = ({ initialProductsList, setProductsList, openMobFilter }: Fi
         setMaxPrice={setMaxPrice}
         handleApplyFilter={handleApplyFilter}
       />
-    </Paper>
+    </Styled.FilterField>
   );
 };
 export default FilterField;

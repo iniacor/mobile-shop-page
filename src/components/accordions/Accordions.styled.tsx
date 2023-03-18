@@ -10,6 +10,7 @@ import styled from 'styled-components';
 
 export const PriceAccordion = styled(props => <MuiAccordion {...props} />)`
   background-color: transparent;
+  padding: 0;
   ${props => props.theme.breakpoints.down('sm')} {
     display: flex;
     flex-direction: column;
@@ -19,6 +20,8 @@ export const PriceAccordion = styled(props => <MuiAccordion {...props} />)`
 
 export const BrandsAccordion = styled(props => <MuiAccordion {...props} />)`
   background-color: transparent;
+  min-height: auto;
+  padding: 0;
   ${props => props.theme.breakpoints.down('sm')} {
     align-items: stretch;
   }
@@ -35,13 +38,15 @@ export const AccordionTitle = styled(props => (
 
 export const AccordionSummary = styled(props => <MuiAccordionSummary {...props} />)`
   padding: 0;
+  & .MuiAccordionSummary-content.Mui-expanded {
+    margin: 0;
+  }
+  &.MuiAccordionSummary-root.Mui-expanded {
+    min-height: 0;
+  }
   ${props => props.theme.breakpoints.down('sm')} {
     & .MuiAccordionSummary-content.Mui-expanded {
-      margin: 0;
       align-items: baseline;
-    }
-    &.MuiAccordionSummary-root.Mui-expanded {
-      min-height: 0;
     }
   }
 `;

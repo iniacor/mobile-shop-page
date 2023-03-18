@@ -1,91 +1,68 @@
-import * as React from 'react';
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
+import React from 'react';
+import { FormGroup } from '@mui/material';
 import Checkbox from '@mui/material/Checkbox';
-import theme from '@theme/index';
+import * as Styled from './FilterField.styled';
 
-export default function BrandCheckboxGroupe({ selectedBrands, handleBrandChange }) {
+type BrandCheckboxGroupeProps = {
+  selectedBrands: string[];
+  handleBrandChange: (brandName: string) => void;
+};
+
+export default function BrandCheckboxGroupe({
+  selectedBrands,
+  handleBrandChange,
+}: BrandCheckboxGroupeProps) {
   return (
     <FormGroup>
-      <FormControlLabel
+      <Styled.FormControlLabel
         control={
           <Checkbox
             checked={selectedBrands.includes('Samsung')}
             onChange={() => handleBrandChange('Samsung')}
+            sx={{ color: '#BDBDBD' }}
           />
         }
         label="Samsung"
-        sx={{
-          [theme.breakpoints.down('sm')]: {
-            flexDirection: 'row-reverse',
-            justifyContent: 'space-between',
-            margin: 0,
-          },
-        }}
       />
-      <FormControlLabel
+      <Styled.FormControlLabel
         control={
           <Checkbox
             checked={selectedBrands.includes('Apple')}
             onChange={() => handleBrandChange('Apple')}
+            sx={{ color: '#BDBDBD' }}
           />
         }
         label="Apple"
-        sx={{
-          [theme.breakpoints.down('sm')]: {
-            flexDirection: 'row-reverse',
-            justifyContent: 'space-between',
-            margin: 0,
-          },
-        }}
       />
-      <FormControlLabel
+      <Styled.FormControlLabel
         control={
           <Checkbox
             checked={selectedBrands.includes('Huawei')}
             onChange={() => handleBrandChange('Huawei')}
+            sx={{ color: '#BDBDBD' }}
           />
         }
         label="Huawei"
-        sx={{
-          [theme.breakpoints.down('sm')]: {
-            flexDirection: 'row-reverse',
-            justifyContent: 'space-between',
-            margin: 0,
-          },
-        }}
       />
-      <FormControlLabel
+      <Styled.FormControlLabel
         control={
           <Checkbox
             checked={selectedBrands.includes('Pocco')}
             onChange={() => handleBrandChange('Pocco')}
+            sx={{ color: '#BDBDBD' }}
           />
         }
         label="Pocco"
-        sx={{
-          [theme.breakpoints.down('sm')]: {
-            flexDirection: 'row-reverse',
-            justifyContent: 'space-between',
-            margin: 0,
-          },
-        }}
       />
-      <FormControlLabel
+      <Styled.FormControlLabel
         control={
           <Checkbox
             checked={selectedBrands.includes('Lenovo')}
             onChange={() => handleBrandChange('Lenovo')}
+            sx={{ color: '#BDBDBD' }}
           />
         }
         label="Lenovo"
-        sx={{
-          [theme.breakpoints.down('sm')]: {
-            flexDirection: 'row-reverse',
-            justifyContent: 'space-between',
-            margin: 0,
-          },
-        }}
       />
     </FormGroup>
   );

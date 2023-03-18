@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Grid } from '@mui/material';
-import Data from '../Data';
-import ProductsList from '@components/productsList/ProductsList';
-import SortField from '@components/sortField/SortField';
+import Data from '../common/data/data';
+import ProductsList from '@components/productsList';
+import SortField from '@components/sortField';
 import FilterField from '@components/filterField/FilterField';
 import type Product from '../entities/products';
 

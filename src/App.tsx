@@ -1,7 +1,7 @@
-import * as React from 'react';
+import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { EmotionCache } from '@emotion/react';
-import Layout from './components/Layout/Layout';
+import Layout from './components/Layout';
 import CategoryPage from './pages/Category';
 import ProductCardPage from './pages/Product';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography, Box } from '@mui/material';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { BuyButton } from '@components/buttons/Buttons.styled';
-import Attributes from '@components/attributes/Attributes';
+import Attributes from '@components/attributes';
 import * as Styled from './ProductCard.styled';
 import type Product from '@entities/products';
 

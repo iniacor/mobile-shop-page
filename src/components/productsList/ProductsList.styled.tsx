@@ -6,6 +6,7 @@ export const ProductsList = styled(List)`
   flex-direction: column;
   gap: 8px;
   padding-left: 32px;
+  padding-top: 0;
   ${props => props.theme.breakpoints.down('sm')} {
     padding-left: 0;
   }
