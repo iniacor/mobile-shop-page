@@ -3,6 +3,7 @@
 ### React-powered SPA for visualisation goods on category page of electronics shop.
 All goods and their characteristics are already on the client (no requests to the server are required)
 
+### Application available via [link](https://mobile-shop-test.netlify.app/) 👈🏻
 
 ## ⚙️ Used technologies:
 
